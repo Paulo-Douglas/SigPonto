@@ -26,6 +26,10 @@ class MyInput extends HookWidget {
         user.value = value;
         var token = await Service(user: user.value).login();
         tokenUser.value = token;
+
+        if (tokenUser.value.isNotEmpty) {
+          Navigator.pushNamed(context, '/home');
+        }
       },
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
