@@ -7,13 +7,23 @@ class MyInput extends HookWidget {
   final String helpText;
   final String label;
   final IconData? icon;
+  final ValueNotifier<String> user;
 
-  const MyInput({super.key, this.helpText = "", this.label = "", this.icon});
+  MyInput({
+    super.key,
+    required this.user,
+    this.helpText = "",
+    this.label = "",
+    this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (value) => Service(user: value),
+      onSubmitted: (value) {
+        user.value = value;
+        Service(user: value);
+      },
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
         fontWeight: FontWeight.w500,
