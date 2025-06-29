@@ -13,7 +13,16 @@ class TelaHome extends HookWidget {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(title: Text("SIGPONTO"), leading: Icon(Icons.logout)),
+      appBar: AppBar(
+        title: Text("SIGPONTO"),
+        leading: IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () {
+            tokenUser.value = "";
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(color: Colors.white70),
