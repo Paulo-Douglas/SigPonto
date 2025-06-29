@@ -30,6 +30,38 @@ class Service {
     }
   }
 
+  static Future<List<dynamic>> baterPonto(
+    String tokenUser,
+    double latitude,
+    double longitude,
+  ) async {
+    try {
+      var url = dotenv.env['URL_PONTO'];
+      var urlHttp = Uri.parse(url as String);
+      var res = await http.post(
+        urlHttp,
+        headers: {
+          'Authorization': 'Token $tokenUser',
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({'latitude': latitude, 'longitude': longitude}),
+      );
+      if (res.statusCode == 201) {
+        var decode = jsonDecode(res.body);
+        var ponto = [decode["tipo_ponto_display"], decode["data_hora"]];
+        return ponto;
+      } else {
+        // ignore: avoid_print
+        print("Erro ao bater ponto: ${res.statusCode}");
+        return [];
+      }
+    } catch (error) {
+      // ignore: avoid_print
+      print("Error: $error");
+      return [];
+    }
+  }
+
   String get user {
     // ignore: avoid_print
     print(_user);
