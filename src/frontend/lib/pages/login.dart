@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import '../components/my_input.dart';
 import '../components/my_button.dart';
+import '../utils/login_system.dart';
 
 class TelaLogin extends HookWidget {
   final double width;
@@ -49,8 +50,9 @@ class TelaLogin extends HookWidget {
                         helpText: "Seu usuário do SIGAA",
                         label: "Insira seu usuário",
                         icon: Icons.login,
-                        user: user,
-                        tokenUser: tokenUser,
+                        login: (String value) {
+                          loginSystem(user, tokenUser, context, value, '/home');
+                        },
                       ),
                       MyButton(
                         actionButton: "Entrar",

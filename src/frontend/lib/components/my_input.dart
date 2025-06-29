@@ -1,36 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../service/service.dart';
 
 class MyInput extends HookWidget {
   final String helpText;
   final String label;
   final IconData? icon;
-  final ValueNotifier<String> user;
-  final ValueNotifier<String> tokenUser;
+  final Function(String) login;
 
-  MyInput({
+  const MyInput({
     super.key,
-    required this.user,
-    required this.tokenUser,
+    required this.login,
     this.helpText = "",
     this.label = "",
     this.icon,
   });
-
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (value) async {
-        user.value = value;
-        var token = await Service(user: user.value).login();
-        tokenUser.value = token;
-
-        if (tokenUser.value.isNotEmpty) {
-          Navigator.pushNamed(context, '/home');
-        }
-      },
+      onSubmitted: login,
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
         fontWeight: FontWeight.w500,
