@@ -23,7 +23,8 @@ class MyApp extends HookWidget {
       routes: {
         '/login': (context) =>
             TelaLogin(height: height, width: width, tokenUser: tokenUser),
-        '/home': (context) => TelaHome(tokenUser: tokenUser),
+        '/home': (context) =>
+            TelaHome(tokenUser: tokenUser, width: width, height: height),
         '/pontos': (context) => TelaRelatorio(),
       },
     );

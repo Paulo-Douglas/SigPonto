@@ -4,14 +4,18 @@ import '../components/my_button.dart';
 
 class TelaHome extends HookWidget {
   final ValueNotifier<String> tokenUser;
+  final double width;
+  final double height;
 
-  const TelaHome({super.key, required this.tokenUser});
+  const TelaHome({
+    super.key,
+    required this.tokenUser,
+    required this.width,
+    required this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         title: Text("SIGPONTO"),
@@ -41,7 +45,7 @@ class TelaHome extends HookWidget {
                     ),
                     MyButton(
                       actionButton: "Bater ponto",
-                      onPressed: () => print("Ponto batido"),
+                      onPressed: () => print("Bater ponto"),
                     ),
                   ],
                 ),
