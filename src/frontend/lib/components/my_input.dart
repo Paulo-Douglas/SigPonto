@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../service/service.dart';
 
 class MyInput extends HookWidget {
   final String helpText;
@@ -11,13 +12,8 @@ class MyInput extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    void submmit(String matricula) {
-      // ignore: avoid_print
-      print("Matrícula: $matricula");
-    }
-
     return TextField(
-      onSubmitted: (value) => submmit(value),
+      onSubmitted: (value) => Service(user: value),
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
         fontWeight: FontWeight.w500,
