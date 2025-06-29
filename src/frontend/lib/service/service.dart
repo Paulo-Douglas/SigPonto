@@ -80,9 +80,29 @@ class Service {
     }
   }
 
-  String get user {
-    // ignore: avoid_print
-    print(_user);
-    return _user;
+  static Future<List<Map<String, dynamic>>> pontosRelatorio(
+    String tokenUser,
+  ) async {
+    try {
+      var url = dotenv.env['URL_RELATORIO'];
+      var urlHttp = Uri.parse(url as String);
+      var res = await http.get(
+        urlHttp,
+        headers: {
+          'Authorization': 'Token $tokenUser',
+          'Content-Type': 'application/json',
+        },
+      );
+      if (res.statusCode == 200) {
+        var decode = jsonDecode(res.body);
+        print(decode);
+        return decode;
+      }
+      return [];
+    } catch (error) {
+      // ignore: avoid_print
+      print("Error: $error");
+      return [];
+    }
   }
 }
