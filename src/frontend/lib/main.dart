@@ -4,6 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:frontend/pages/pontos.dart';
 import './pages/login.dart';
 import './pages/home.dart';
+import './styles/style.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -20,6 +21,7 @@ class MyApp extends HookWidget {
     final username = useState<String>("");
 
     return MaterialApp(
+      theme: customTheme,
       initialRoute: '/login',
       routes: {
         '/login': (context) => TelaLogin(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import '../utils/format_date.dart';
+import '../styles/colors.dart';
 
 // ignore: use_key_in_widget_constructors
 class TelaRelatorio extends HookWidget {
@@ -26,13 +27,13 @@ class TelaRelatorio extends HookWidget {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundColor: tipo == "Entrada"
-                        ? Colors.green.shade100
-                        : Colors.red.shade100,
+                        ? GetColor.greeSuav.color
+                        : GetColor.redLigth.color,
                     child: Icon(
                       tipo == "Entrada" ? Icons.login : Icons.logout,
                       color: tipo == "Entrada"
-                          ? Colors.green.shade800
-                          : Colors.red.shade800,
+                          ? GetColor.greeLight.color
+                          : GetColor.red.color,
                     ),
                   ),
                   title: Text(

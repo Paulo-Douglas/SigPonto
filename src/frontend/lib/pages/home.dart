@@ -5,6 +5,7 @@ import 'dart:async';
 import '../components/my_button.dart';
 import '../service/service.dart';
 import '../utils/format_date.dart';
+import '../styles/colors.dart';
 
 class TelaHome extends HookWidget {
   final ValueNotifier<String> tokenUser;
@@ -37,7 +38,9 @@ class TelaHome extends HookWidget {
       ),
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.white70),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.onPrimary,
+        ),
         child: Column(
           children: [
             Expanded(
@@ -59,6 +62,7 @@ class TelaHome extends HookWidget {
                           arguments: relatorios,
                         );
                       },
+                      styleButton: "yellow",
                     ),
                     MyButton(
                       actionButton: "Bater ponto",
@@ -78,11 +82,8 @@ class TelaHome extends HookWidget {
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  Colors.lightBlueAccent.withValues(blue: 10),
-                                  Colors.lightBlueAccent.withValues(
-                                    blue: 10,
-                                    alpha: 100,
-                                  ),
+                                  GetColor.blueLigth.color,
+                                  GetColor.blueLigthAlfa.color,
                                 ],
                               ),
                             ),

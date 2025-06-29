@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../components/my_input.dart';
 import '../components/my_button.dart';
 import '../utils/login_system.dart';
+import '../styles/colors.dart';
 
 class TelaLogin extends HookWidget {
   final double width;
@@ -21,6 +22,7 @@ class TelaLogin extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -37,11 +39,11 @@ class TelaLogin extends HookWidget {
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Colors.lightBlueAccent.withValues(blue: 10),
-                    Colors.lightBlueAccent.withValues(blue: 10, alpha: 100),
+                    GetColor.blueLigth.color,
+                    GetColor.blueLigthAlfa.color,
                   ],
                 ),
-                color: Colors.blue,
+                color: Theme.of(context).colorScheme.primary,
                 borderRadius: BorderRadius.circular(20),
               ),
               // color: Colors.amber,

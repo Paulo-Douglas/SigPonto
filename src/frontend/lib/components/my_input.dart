@@ -30,24 +30,32 @@ class MyInput extends HookWidget {
         helperText: helpText,
         helperStyle: TextStyle(
           fontFamily: GoogleFonts.alef().fontFamily,
-          color: Colors.white70,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
         labelText: label,
         labelStyle: TextStyle(
           fontFamily: GoogleFonts.alef().fontFamily,
-          color: Colors.white70,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
         prefixIcon: icon != null ? Icon(icon) : null,
-        prefixIconColor: Colors.white70,
+        prefixIconColor: Theme.of(context).colorScheme.onPrimary,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white70),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.onPrimary,
+          ),
         ),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.white, width: 2),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.onPrimary,
+            width: 2,
+          ),
         ),
         errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.redAccent, width: 2),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.error,
+            width: 2,
+          ),
         ),
       ),
     );
