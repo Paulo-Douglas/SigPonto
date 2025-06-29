@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import '../components/my_input.dart';
+import '../components/my_button.dart';
 
 class TelaLogin extends HookWidget {
   final double width;
@@ -10,6 +11,8 @@ class TelaLogin extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    var user = useState<String>("");
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -38,10 +41,17 @@ class TelaLogin extends HookWidget {
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
-                  child: MyInput(
-                    helpText: "Seu usuário do SIGAA",
-                    label: "Insira seu usuário",
-                    icon: Icons.login,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      MyInput(
+                        helpText: "Seu usuário do SIGAA",
+                        label: "Insira seu usuário",
+                        icon: Icons.login,
+                        user: user,
+                      ),
+                      MyButton(actionButton: "Entrar", user: user),
+                    ],
                   ),
                 ),
               ),
