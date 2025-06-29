@@ -62,6 +62,29 @@ class Service {
     }
   }
 
+  static Future<bool> logout(String username, String tokenUser) async {
+    try {
+      var url = dotenv.env['URL_LOGOUT'];
+      var urlHttp = Uri.parse(url as String);
+      var res = await http.post(
+        urlHttp,
+        headers: {
+          'Authorization': 'Token $tokenUser',
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode({'username': username}),
+      );
+      if (res.statusCode == 204) {
+        return true;
+      }
+      return false;
+    } catch (error) {
+      // ignore: avoid_print
+      print("Error: $error");
+      return false;
+    }
+  }
+
   String get user {
     // ignore: avoid_print
     print(_user);

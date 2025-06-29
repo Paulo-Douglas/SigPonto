@@ -32,7 +32,7 @@ class MyApp extends HookWidget {
           tokenUser: tokenUser,
           width: width,
           height: height,
-          user: username,
+          username: username,
         ),
         '/pontos': (context) => TelaRelatorio(),
       },

@@ -10,14 +10,14 @@ class TelaHome extends HookWidget {
   final ValueNotifier<String> tokenUser;
   final double width;
   final double height;
-  final user;
+  final ValueNotifier<String> username;
 
   const TelaHome({
     super.key,
     required this.tokenUser,
     required this.width,
     required this.height,
-    required this.user,
+    required this.username,
   });
 
   @override
@@ -29,9 +29,10 @@ class TelaHome extends HookWidget {
         title: Text("SIGPONTO"),
         leading: IconButton(
           icon: Icon(Icons.logout),
-          onPressed: () {
-            tokenUser.value = "";
-            Navigator.pop(context);
+          onPressed: () async {
+            print("${username.value}, ${tokenUser.value}");
+            var logout = await Service.logout(username.value, tokenUser.value);
+            if (logout) Navigator.pop(context);
           },
         ),
       ),
