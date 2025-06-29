@@ -17,10 +17,16 @@ class Service {
       var url = dotenv.env['URL'];
       var urlHttp = Uri.parse(url as String);
       var res = await http.post(urlHttp, body: {'username': _user});
-      var decode = jsonDecode(res.body);
-      return decode["token"];
+      if (res.statusCode == 200) {
+        var decode = jsonDecode(res.body);
+        return decode["token"];
+      } else {
+        return "";
+      }
     } catch (error) {
-      return " ";
+      // ignore: avoid_print
+      print("Error $error");
+      return "";
     }
   }
 
