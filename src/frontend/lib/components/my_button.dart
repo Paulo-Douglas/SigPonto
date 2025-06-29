@@ -6,13 +6,22 @@ import '../service/service.dart';
 class MyButton extends HookWidget {
   final String actionButton;
   final ValueNotifier<String> user;
+  final ValueNotifier<String> tokenUser;
 
-  const MyButton({super.key, required this.actionButton, required this.user});
+  const MyButton({
+    super.key,
+    required this.actionButton,
+    required this.user,
+    required this.tokenUser,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () async => await Service(user: user.value).login(),
+      onPressed: () async {
+        var token = await Service(user: user.value).login();
+        tokenUser.value = token;
+      },
       style: ButtonStyle(
         textStyle: WidgetStateProperty.resolveWith((states) {
           return TextStyle(

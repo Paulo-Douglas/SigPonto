@@ -8,10 +8,12 @@ class MyInput extends HookWidget {
   final String label;
   final IconData? icon;
   final ValueNotifier<String> user;
+  final ValueNotifier<String> tokenUser;
 
   MyInput({
     super.key,
     required this.user,
+    required this.tokenUser,
     this.helpText = "",
     this.label = "",
     this.icon,
@@ -22,7 +24,8 @@ class MyInput extends HookWidget {
     return TextField(
       onSubmitted: (value) async {
         user.value = value;
-        await Service(user: user.value).login();
+        var token = await Service(user: user.value).login();
+        tokenUser.value = token;
       },
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,

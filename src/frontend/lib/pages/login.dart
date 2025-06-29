@@ -12,6 +12,7 @@ class TelaLogin extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var user = useState<String>("");
+    var tokenUser = useState<String>("");
 
     return Scaffold(
       body: Padding(
@@ -49,8 +50,13 @@ class TelaLogin extends HookWidget {
                         label: "Insira seu usuário",
                         icon: Icons.login,
                         user: user,
+                        tokenUser: tokenUser,
                       ),
-                      MyButton(actionButton: "Entrar", user: user),
+                      MyButton(
+                        actionButton: "Entrar",
+                        user: user,
+                        tokenUser: tokenUser,
+                      ),
                     ],
                   ),
                 ),
