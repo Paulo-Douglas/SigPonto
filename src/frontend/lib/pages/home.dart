@@ -30,7 +30,6 @@ class TelaHome extends HookWidget {
         leading: IconButton(
           icon: Icon(Icons.logout),
           onPressed: () async {
-            print("${username.value}, ${tokenUser.value}");
             var logout = await Service.logout(username.value, tokenUser.value);
             if (logout) Navigator.pop(context);
           },
@@ -50,7 +49,16 @@ class TelaHome extends HookWidget {
                   children: [
                     MyButton(
                       actionButton: "Visualizar minhas presenças",
-                      onPressed: () => Navigator.pushNamed(context, '/pontos'),
+                      onPressed: () async {
+                        var relatorios = await Service.pontosRelatorio(
+                          tokenUser.value,
+                        );
+                        Navigator.pushNamed(
+                          context,
+                          '/pontos',
+                          arguments: relatorios,
+                        );
+                      },
                     ),
                     MyButton(
                       actionButton: "Bater ponto",

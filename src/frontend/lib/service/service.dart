@@ -80,9 +80,7 @@ class Service {
     }
   }
 
-  static Future<List<Map<String, dynamic>>> pontosRelatorio(
-    String tokenUser,
-  ) async {
+  static Future<List<dynamic>> pontosRelatorio(String tokenUser) async {
     try {
       var url = dotenv.env['URL_RELATORIO'];
       var urlHttp = Uri.parse(url as String);
