@@ -64,8 +64,6 @@ class TelaLogin extends HookWidget {
                       //abner.cordeiro
                       MyButton(
                         actionButton: "Entrar",
-                        user: user,
-                        tokenUser: tokenUser,
                         onPressed: () =>
                             loginSystemOnPressed(user, tokenUser, context),
                       ),

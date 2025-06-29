@@ -4,15 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyButton extends HookWidget {
   final String actionButton;
-  final ValueNotifier<String> user;
-  final ValueNotifier<String> tokenUser;
   final VoidCallback onPressed;
 
   const MyButton({
     super.key,
     required this.actionButton,
-    required this.user,
-    required this.tokenUser,
     required this.onPressed,
   });
 
