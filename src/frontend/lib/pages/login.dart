@@ -8,18 +8,18 @@ class TelaLogin extends HookWidget {
   final double width;
   final double height;
   final ValueNotifier<String> tokenUser;
+  final user;
 
   const TelaLogin({
     super.key,
     required this.width,
     required this.height,
     required this.tokenUser,
+    required this.user,
   });
 
   @override
   Widget build(BuildContext context) {
-    var user = useState<String>("");
-
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),

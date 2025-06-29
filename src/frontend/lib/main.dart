@@ -17,14 +17,23 @@ class MyApp extends HookWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     final tokenUser = useState<String>("");
+    final username = useState<String>("");
 
     return MaterialApp(
       initialRoute: '/login',
       routes: {
-        '/login': (context) =>
-            TelaLogin(height: height, width: width, tokenUser: tokenUser),
-        '/home': (context) =>
-            TelaHome(tokenUser: tokenUser, width: width, height: height),
+        '/login': (context) => TelaLogin(
+          height: height,
+          width: width,
+          tokenUser: tokenUser,
+          user: username,
+        ),
+        '/home': (context) => TelaHome(
+          tokenUser: tokenUser,
+          width: width,
+          height: height,
+          user: username,
+        ),
         '/pontos': (context) => TelaRelatorio(),
       },
     );

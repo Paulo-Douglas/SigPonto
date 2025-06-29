@@ -10,12 +10,14 @@ class TelaHome extends HookWidget {
   final ValueNotifier<String> tokenUser;
   final double width;
   final double height;
+  final user;
 
   const TelaHome({
     super.key,
     required this.tokenUser,
     required this.width,
     required this.height,
+    required this.user,
   });
 
   @override
