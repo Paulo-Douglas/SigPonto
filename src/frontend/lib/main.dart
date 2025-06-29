@@ -10,17 +10,20 @@ void main() async {
   runApp(MyApp());
 }
 
+// ignore: use_key_in_widget_constructors
 class MyApp extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    final tokenUser = useState<String>("");
 
     return MaterialApp(
       initialRoute: '/login',
       routes: {
-        '/login': (context) => TelaLogin(height: height, width: width),
-        '/home': (context) => TelaHome(),
+        '/login': (context) =>
+            TelaLogin(height: height, width: width, tokenUser: tokenUser),
+        '/home': (context) => TelaHome(tokenUser: tokenUser),
         '/pontos': (context) => TelaRelatorio(),
       },
     );

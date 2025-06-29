@@ -7,13 +7,18 @@ import '../utils/login_system.dart';
 class TelaLogin extends HookWidget {
   final double width;
   final double height;
+  final ValueNotifier<String> tokenUser;
 
-  const TelaLogin({super.key, required this.width, required this.height});
+  const TelaLogin({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.tokenUser,
+  });
 
   @override
   Widget build(BuildContext context) {
     var user = useState<String>("");
-    var tokenUser = useState<String>("");
 
     return Scaffold(
       body: Padding(
