@@ -12,7 +12,7 @@ class MyButton extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => Service(user: user.value),
+      onPressed: () async => await Service(user: user.value).login(),
       style: ButtonStyle(
         textStyle: WidgetStateProperty.resolveWith((states) {
           return TextStyle(

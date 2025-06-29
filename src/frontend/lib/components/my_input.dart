@@ -20,9 +20,9 @@ class MyInput extends HookWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (value) {
+      onSubmitted: (value) async {
         user.value = value;
-        Service(user: value);
+        await Service(user: user.value).login();
       },
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
