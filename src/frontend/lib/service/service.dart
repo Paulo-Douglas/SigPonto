@@ -7,11 +7,6 @@ class Service {
 
   Service({String user = ""}) : _user = user;
 
-  // _login() {
-  //   // ignore: avoid_print
-  //   print(_user);
-  // }
-
   Future<String> login() async {
     try {
       var url = dotenv.env['URL'];
