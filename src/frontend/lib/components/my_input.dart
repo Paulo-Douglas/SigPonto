@@ -6,11 +6,13 @@ class MyInput extends HookWidget {
   final String helpText;
   final String label;
   final IconData? icon;
+  final ValueNotifier<String> user;
   final Function(String) login;
 
   const MyInput({
     super.key,
     required this.login,
+    required this.user,
     this.helpText = "",
     this.label = "",
     this.icon,
@@ -19,6 +21,7 @@ class MyInput extends HookWidget {
   Widget build(BuildContext context) {
     return TextField(
       onSubmitted: login,
+      onChanged: (value) => user.value = value,
       style: TextStyle(
         fontFamily: GoogleFonts.alef().fontFamily,
         fontWeight: FontWeight.w500,

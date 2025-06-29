@@ -50,14 +50,24 @@ class TelaLogin extends HookWidget {
                         helpText: "Seu usuário do SIGAA",
                         label: "Insira seu usuário",
                         icon: Icons.login,
+                        user: user,
                         login: (String value) {
-                          loginSystem(user, tokenUser, context, value, '/home');
+                          loginSystemSubmmit(
+                            user,
+                            tokenUser,
+                            context,
+                            value,
+                            '/home',
+                          );
                         },
                       ),
+                      //abner.cordeiro
                       MyButton(
                         actionButton: "Entrar",
                         user: user,
                         tokenUser: tokenUser,
+                        onPressed: () =>
+                            loginSystemOnPressed(user, tokenUser, context),
                       ),
                     ],
                   ),
