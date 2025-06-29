@@ -93,7 +93,6 @@ class Service {
       );
       if (res.statusCode == 200) {
         var decode = jsonDecode(res.body);
-        print(decode);
         return decode;
       }
       return [];
