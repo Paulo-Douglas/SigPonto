@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:convert';
 
 class Service {
-  String _user;
+  final String _user;
 
   Service({String user = ""}) : _user = user;
 
