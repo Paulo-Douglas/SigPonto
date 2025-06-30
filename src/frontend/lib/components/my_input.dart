@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MyInput extends HookWidget {
   final String helpText;
@@ -22,21 +21,12 @@ class MyInput extends HookWidget {
     return TextField(
       onSubmitted: login,
       onChanged: (value) => user.value = value,
-      style: TextStyle(
-        fontFamily: GoogleFonts.alef().fontFamily,
-        fontWeight: FontWeight.w500,
-      ),
+      style: Theme.of(context).textTheme.bodyLarge,
       decoration: InputDecoration(
         helperText: helpText,
-        helperStyle: TextStyle(
-          fontFamily: GoogleFonts.alef().fontFamily,
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
+        helperStyle: Theme.of(context).textTheme.labelSmall,
         labelText: label,
-        labelStyle: TextStyle(
-          fontFamily: GoogleFonts.alef().fontFamily,
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
+        labelStyle: Theme.of(context).textTheme.bodyLarge,
         prefixIcon: icon != null ? Icon(icon) : null,
         prefixIconColor: Theme.of(context).colorScheme.onPrimary,
         enabledBorder: OutlineInputBorder(

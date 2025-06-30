@@ -38,11 +38,18 @@ class TelaRelatorio extends HookWidget {
                   ),
                   title: Text(
                     servidor,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Text(tipo), SizedBox(height: 4), Text(dataHora)],
+                    children: [
+                      Text(tipo, style: Theme.of(context).textTheme.bodySmall),
+                      SizedBox(height: 4),
+                      Text(
+                        dataHora,
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
                   ),
                   isThreeLine: true,
                 );

@@ -21,7 +21,7 @@ class MyButton extends HookWidget {
       style: styleButton.isNotEmpty
           ? MyStyle.yellowButton
           : MyStyle.greenButton,
-      child: Text(actionButton),
+      child: Text(actionButton, style: Theme.of(context).textTheme.labelLarge),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:async';
 import '../components/my_button.dart';
 import '../service/service.dart';
@@ -92,19 +91,11 @@ class TelaHome extends HookWidget {
                               children: [
                                 Text(
                                   "${ponto.value[0]}",
-                                  style: TextStyle(
-                                    fontFamily:
-                                        GoogleFonts.poppins().fontFamily,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelLarge,
                                 ),
                                 Text(
                                   formatarData(ponto.value[1]),
-                                  style: TextStyle(
-                                    fontFamily:
-                                        GoogleFonts.poppins().fontFamily,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: Theme.of(context).textTheme.labelLarge,
                                 ),
                               ],
                             ),

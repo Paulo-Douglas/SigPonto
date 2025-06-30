@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './colors.dart';
 
 final ThemeData customTheme = ThemeData(
@@ -24,9 +25,45 @@ final ThemeData customTheme = ThemeData(
     onError: GetColor.white.color,
     brightness: Brightness.light,
   ),
-  textTheme: const TextTheme(
-    bodyLarge: TextStyle(color: Colors.black87),
-    bodyMedium: TextStyle(color: Colors.black54),
-    titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(
+      color: Colors.black87,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    ),
+    bodyMedium: TextStyle(
+      color: GetColor.blue.color,
+      fontSize: 12,
+      fontWeight: FontWeight.w300,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    ),
+    bodySmall: TextStyle(
+      color: GetColor.blue.color,
+      fontSize: 10,
+      fontWeight: FontWeight.w300,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    ),
+    labelSmall: TextStyle(
+      color: const Color.fromARGB(221, 0, 0, 0),
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 10,
+      fontWeight: FontWeight.w600,
+    ),
+    labelLarge: TextStyle(
+      color: Colors.white,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontSize: 15,
+      fontWeight: FontWeight.bold,
+    ),
+    titleLarge: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 18,
+      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontWeight: FontWeight.bold,
+      color: GetColor.blue.color,
+    ),
   ),
 );
