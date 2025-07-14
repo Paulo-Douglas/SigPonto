@@ -1,6 +1,6 @@
 from api.models import Servidor, Cargo, Departamento, Vinculo, Ponto
 from rest_framework import serializers
-from django.utils import timezone
+from django.utils.timezone import now
 
 class ServidorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -44,7 +44,7 @@ class PontoSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         servidor = self.context['request'].user
         
-        hoje = timezone.localtime(timezone.now()).date()
+        hoje = now().date()
         ultimo_ponto = Ponto.objects.filter(
             servidor=servidor, 
             data_hora__date=hoje
