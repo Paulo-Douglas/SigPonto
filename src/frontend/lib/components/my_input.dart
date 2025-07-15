@@ -5,13 +5,13 @@ class MyInput extends HookWidget {
   final String helpText;
   final String label;
   final IconData? icon;
-  final ValueNotifier<String> user;
-  final Function(String) login;
+  final ValueNotifier<String> valueUserInput;
+  final void Function(String) login;
 
   const MyInput({
     super.key,
     required this.login,
-    required this.user,
+    required this.valueUserInput,
     this.helpText = "",
     this.label = "",
     this.icon,
@@ -20,7 +20,7 @@ class MyInput extends HookWidget {
   Widget build(BuildContext context) {
     return TextField(
       onSubmitted: login,
-      onChanged: (value) => user.value = value,
+      onChanged: (value) => valueUserInput.value = value,
       style: Theme.of(context).textTheme.bodyLarge,
       decoration: InputDecoration(
         helperText: helpText,

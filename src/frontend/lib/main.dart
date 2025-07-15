@@ -17,25 +17,13 @@ class MyApp extends HookWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    final tokenUser = useState<String>("");
-    final username = useState<String>("");
 
     return MaterialApp(
       theme: customTheme,
       initialRoute: '/login',
       routes: {
-        '/login': (context) => TelaLogin(
-          height: height,
-          width: width,
-          tokenUser: tokenUser,
-          user: username,
-        ),
-        '/home': (context) => TelaHome(
-          tokenUser: tokenUser,
-          width: width,
-          height: height,
-          username: username,
-        ),
+        '/login': (context) => TelaLogin(height: height, width: width),
+        '/home': (context) => TelaHome(width: width, height: height),
         '/pontos': (context) => TelaRelatorio(),
       },
     );

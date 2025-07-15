@@ -2,25 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import '../components/my_input.dart';
 import '../components/my_button.dart';
-import '../utils/login_system.dart';
 import '../styles/colors.dart';
+import "../service/service.dart";
 
 class TelaLogin extends HookWidget {
   final double width;
   final double height;
-  final ValueNotifier<String> tokenUser;
-  final user;
 
-  const TelaLogin({
-    super.key,
-    required this.width,
-    required this.height,
-    required this.tokenUser,
-    required this.user,
-  });
+  const TelaLogin({super.key, required this.width, required this.height});
 
   @override
   Widget build(BuildContext context) {
+    final valueUserInput = useState<String>("");
+
+    final credenciais = useListenable(SERVICE.credenciaisNotifier);
+
+    useEffect(() {
+      final token = credenciais.value["token"];
+      if (token != null && token.toString().isNotEmpty) {
+        Future.microtask(() {
+          Navigator.pushNamed(context, "/home");
+        });
+      }
+      return null;
+    }, [credenciais.value]);
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
@@ -57,21 +63,14 @@ class TelaLogin extends HookWidget {
                         helpText: "Seu usuário do SIGAA",
                         label: "Insira seu usuário",
                         icon: Icons.login,
-                        user: user,
+                        valueUserInput: valueUserInput,
                         login: (String value) {
-                          loginSystemSubmmit(
-                            user,
-                            tokenUser,
-                            context,
-                            value,
-                            '/home',
-                          );
+                          SERVICE.login(value);
                         },
                       ),
                       MyButton(
                         actionButton: "Entrar",
-                        onPressed: () =>
-                            loginSystemOnPressed(user, tokenUser, context),
+                        onPressed: () => SERVICE.login(valueUserInput.value),
                       ),
                     ],
                   ),

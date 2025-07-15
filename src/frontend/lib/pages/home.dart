@@ -7,18 +7,10 @@ import '../utils/format_date.dart';
 import '../styles/colors.dart';
 
 class TelaHome extends HookWidget {
-  final ValueNotifier<String> tokenUser;
   final double width;
   final double height;
-  final ValueNotifier<String> username;
 
-  const TelaHome({
-    super.key,
-    required this.tokenUser,
-    required this.width,
-    required this.height,
-    required this.username,
-  });
+  const TelaHome({super.key, required this.width, required this.height});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +22,7 @@ class TelaHome extends HookWidget {
         leading: IconButton(
           icon: Icon(Icons.logout),
           onPressed: () async {
-            var logout = await Service.logout(username.value, tokenUser.value);
+            var logout = await SERVICE.logout(SERVICE.username, SERVICE.token);
             if (logout) Navigator.pop(context);
           },
         ),
@@ -52,8 +44,8 @@ class TelaHome extends HookWidget {
                     MyButton(
                       actionButton: "Visualizar minhas presenças",
                       onPressed: () async {
-                        var relatorios = await Service.pontosRelatorio(
-                          tokenUser.value,
+                        var relatorios = await SERVICE.pontosRelatorio(
+                          SERVICE.token,
                         );
                         Navigator.pushNamed(
                           context,
@@ -66,8 +58,8 @@ class TelaHome extends HookWidget {
                     MyButton(
                       actionButton: "Bater ponto",
                       onPressed: () async {
-                        ponto.value = await Service.baterPonto(
-                          tokenUser.value,
+                        ponto.value = await SERVICE.baterPonto(
+                          SERVICE.token,
                           -5.888,
                           -35.202,
                         );
