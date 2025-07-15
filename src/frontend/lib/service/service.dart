@@ -9,9 +9,6 @@ var SERVICE = Service();
 class Service {
   final ValueNotifier<Map<String, dynamic>> _credenciais =
       ValueNotifier<Map<String, dynamic>>({});
-  final String _user;
-
-  Service({String user = ""}) : _user = user;
 
   ValueNotifier<Map<String, dynamic>> get credenciaisNotifier => _credenciais;
   String get token => _credenciais.value["token"] ?? "";
