@@ -20,6 +20,7 @@ class MyApp extends HookWidget {
 
     return MaterialApp(
       theme: customTheme,
+      debugShowCheckedModeBanner: false,
       initialRoute: '/login',
       routes: {
         '/login': (context) => TelaLogin(height: height, width: width),
