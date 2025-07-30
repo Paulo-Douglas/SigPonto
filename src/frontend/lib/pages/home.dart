@@ -70,14 +70,7 @@ class TelaHome extends HookWidget {
                         ? Container(
                             width: double.infinity,
                             height: height * 0.1,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  GetColor.blueLigth.color,
-                                  GetColor.blueLigthAlfa.color,
-                                ],
-                              ),
-                            ),
+                            decoration: BoxDecoration(color: Color(0xFF01A1EC)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [

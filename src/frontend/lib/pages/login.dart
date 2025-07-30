@@ -14,7 +14,6 @@ class TelaLogin extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final valueUserInput = useState<String>("");
-
     final credenciais = useListenable(SERVICE.credenciaisNotifier);
 
     useEffect(() {
@@ -28,6 +27,7 @@ class TelaLogin extends HookWidget {
     }, [credenciais.value]);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false, // <- ESSENCIAL PRA TUA IDEIA
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -43,16 +43,9 @@ class TelaLogin extends HookWidget {
               width: width * 0.9,
               height: height * 0.5,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    GetColor.blueLigth.color,
-                    GetColor.blueLigthAlfa.color,
-                  ],
-                ),
-                color: Theme.of(context).colorScheme.primary,
+                color: Color(0xFF01A1EC),
                 borderRadius: BorderRadius.circular(20),
               ),
-              // color: Colors.amber,
               child: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
